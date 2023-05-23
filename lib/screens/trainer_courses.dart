@@ -1,6 +1,7 @@
 import 'package:course_project/component/component.dart';
 import 'package:course_project/screens/certificate_screen.dart';
 import 'package:course_project/screens/delete_courses.dart';
+import 'package:course_project/screens/delete_trianer_courses.dart';
 import 'package:course_project/screens/login_screen.dart';
 import 'package:course_project/screens/new_course_screen.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -52,7 +53,8 @@ class _TrainerCoursesScreenState extends State<TrainerCoursesScreen> {
                 if (shared.isHaveAccess == true) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DeleteScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => DeleteTrainerCoursesScreen()),
                   );
                 }
               },

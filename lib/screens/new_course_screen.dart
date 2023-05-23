@@ -139,7 +139,7 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
               height: 50,
               onPressed: () {
                 final newCourse = Course(
-                  img: "assets/images/flutterimg.jpg",
+                  img: "assets/images/Java-Logo.png",
                   text: courseDescriptionController.text,
                   url: urlController.text,
                   trainerName: trainerNameController.text,
