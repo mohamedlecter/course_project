@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:course_project/component/component.dart';
 import 'package:course_project/screens/courses_screen.dart';
+import 'package:course_project/screens/trainer_courses.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -137,16 +138,25 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
               minWidth: 295,
               height: 50,
               onPressed: () {
-                courses.add(pushNewCourse(
-                  courseDescriptionController.text,
-                  image,
-                  urlController.text,
-                  trainerNameController.text,
-                ));
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CoursesScreen()),
+                final newCourse = Course(
+                  img: "assets/images/flutterimg.jpg",
+                  text: courseDescriptionController.text,
+                  url: urlController.text,
+                  trainerName: trainerNameController.text,
                 );
+                courses.add(newCourse);
+                if (shared.isTrainer = true) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TrainerCoursesScreen()),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CoursesScreen()),
+                  );
+                }
               },
               child: const Text(
                 "Add",

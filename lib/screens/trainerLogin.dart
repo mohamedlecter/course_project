@@ -1,6 +1,4 @@
-import 'package:course_project/screens/courses_screen.dart';
 import 'package:course_project/screens/sign_in_screen.dart';
-import 'package:course_project/screens/student_courses_screen.dart';
 import 'package:course_project/screens/trainer_courses.dart';
 import 'package:course_project/sqldb.dart';
 import 'package:flutter/material.dart';
@@ -123,9 +121,8 @@ class TarinerLogInState extends State<TarinerLogIn> {
               users = await sqlDb.readData(
                   "SELECT * FROM 'users' WHERE username='${usernameController.text}' AND password='${passwordController.text}'");
               if (!users.isEmpty) {
-                // print(users[0]['username']);
-
                 loggedInName(usernameController.text);
+                // print(loggedInName.lName);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

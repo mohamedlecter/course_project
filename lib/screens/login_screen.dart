@@ -1,7 +1,7 @@
 import 'package:course_project/component/component.dart';
 import 'package:course_project/screens/courses_screen.dart';
 import 'package:course_project/screens/sign_in_screen.dart';
-import 'package:course_project/screens/student_courses_screen.dart';
+import 'package:course_project/screens/trainer_courses.dart';
 import 'package:course_project/sqldb.dart';
 import 'package:flutter/material.dart';
 
@@ -123,11 +123,18 @@ class LoginScreenState extends State<LoginScreen> {
                   "SELECT * FROM 'users' WHERE username='${usernameController.text}' AND password='${passwordController.text}'");
               if (!users.isEmpty) {
                 loggedInName(usernameController.text);
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CoursesScreen()),
-                );
+                if (shared.isTrainer == true) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TrainerCoursesScreen()),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CoursesScreen()),
+                  );
+                }
               }
               if (users.isEmpty) {
                 showDialog(
