@@ -1,5 +1,6 @@
 import 'package:course_project/component/component.dart';
 import 'package:course_project/screens/login_screen.dart';
+import 'package:course_project/screens/trainerLogin.dart';
 import 'package:flutter/material.dart';
 
 // bool isHeStudent = false;
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Container(
@@ -34,16 +35,16 @@ class HomeScreen extends StatelessWidget {
                 width: 180,
                 height: 7,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 100,
               ),
-              Text(
+              const Text(
                 "دربني",
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 60,
           ),
           MaterialButton(
@@ -51,13 +52,13 @@ class HomeScreen extends StatelessWidget {
             minWidth: 295,
             height: 60,
             onPressed: () {
-              shared(true);
+              shared(true, false);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LoginScreen()),
               );
             },
-            child: Text(
+            child: const Text(
               "administrator",
               style: TextStyle(
                 fontSize: 28,
@@ -65,7 +66,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           MaterialButton(
@@ -73,13 +74,13 @@ class HomeScreen extends StatelessWidget {
             minWidth: 295,
             height: 60,
             onPressed: () {
-              shared(true);
+              shared(true, true);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => LoginScreen()),
+                MaterialPageRoute(builder: (context) => TarinerLogIn()),
               );
             },
-            child: Text(
+            child: const Text(
               "trainer",
               style: TextStyle(
                 fontSize: 28,
@@ -87,7 +88,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           MaterialButton(
@@ -95,13 +96,13 @@ class HomeScreen extends StatelessWidget {
             minWidth: 295,
             height: 60,
             onPressed: () {
-              shared(false);
+              shared(false, false);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LoginScreen()),
               );
             },
-            child: Text(
+            child: const Text(
               "student",
               style: TextStyle(
                 fontSize: 28,

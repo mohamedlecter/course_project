@@ -30,20 +30,20 @@ class SingInScreen extends StatelessWidget {
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Sign in",
+                  const Text(
+                    "Sign up",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
@@ -58,37 +58,37 @@ class SingInScreen extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          Container(
+          SizedBox(
             width: 320,
             child: TextField(
               controller: usernameController,
               keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.alternate_email),
                 border: OutlineInputBorder(),
                 label: Text("User name"),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 35,
           ),
-          Container(
+          SizedBox(
             width: 320,
             child: TextField(
               controller: passwordController,
               keyboardType: TextInputType.visiblePassword,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.lock),
                 border: OutlineInputBorder(),
                 label: Text("Password"),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 35,
           ),
           MaterialButton(
@@ -101,18 +101,10 @@ class SingInScreen extends StatelessWidget {
 
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CoursesScreen()),
+                MaterialPageRoute(builder: (context) => LoginScreen()),
               );
-
-              // else {
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => CoursesScreen()),
-              //   );
-              // }
             },
-            child: Text(
+            child: const Text(
               "Sign in",
               style: TextStyle(
                 fontSize: 28,
@@ -120,20 +112,9 @@ class SingInScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          // MaterialButton(
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => LoginScreen()),
-          //     );
-          //   },
-          //   child: Text(
-          //     "Login page",
-          //     style: TextStyle(color: Colors.blue[500]),
-          //   ),
           // ),
         ],
       ),

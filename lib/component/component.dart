@@ -11,7 +11,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 final now = new DateTime.now();
 String formatter = DateFormat('yMd').format(now);
 
-Widget NewCourse(img, text, url) {
+Widget NewCourse(img, text, url, trainerName) {
   return Column(
     children: [
       SizedBox(
@@ -31,7 +31,7 @@ Widget NewCourse(img, text, url) {
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Text("$text",
+            child: Text("$text by $trainerName",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis),
@@ -85,7 +85,7 @@ Widget NewCourse(img, text, url) {
   );
 }
 
-Widget pushNewCourse(coursename, img, url) {
+Widget pushNewCourse(coursename, img, url, trainerName) {
   return Column(
     children: [
       SizedBox(
@@ -106,7 +106,7 @@ Widget pushNewCourse(coursename, img, url) {
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Text("$coursename",
+            child: Text("$coursename by $trainerName",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -142,31 +142,6 @@ Widget pushNewCourse(coursename, img, url) {
                 ),
                 onTap: () => launch(url),
               ),
-              // IconButton(
-              //     onPressed: () {
-              //       AwesomeDialog(
-              //           context: context,
-              //           dialogType: DialogType.success,
-              //           animType: AnimType.rightSlide,
-              //           title: 'Congratulations !',
-              //           desc: 'Congrats! You can get the certificate',
-              //           btnCancelOnPress: () {
-
-              //               Navigator.push(
-              //                 context,
-              //                 MaterialPageRoute(
-              //                     builder: (context) => CoursesScreen()),
-              //               );
-
-              //           },
-              //           btnOkOnPress: () {},
-              //           btnOkText: "Claim")
-              //         ..show();
-              //     },
-              //     icon: Icon(
-              //       Icons.assignment_turned_in,
-              //       color: Colors.green,
-              //     )),
               SizedBox(
                 width: 30,
               ),
@@ -184,19 +159,29 @@ Widget pushNewCourse(coursename, img, url) {
 
 List<Widget> courses = [
   NewCourse("assets/images/Java-Logo.png", "دورة تعليمية على لغة جافا",
-      "https://www.youtube.com/watch?v=N1WUJe8GgbM"),
+      "https://www.youtube.com/watch?v=N1WUJe8GgbM", "mohamed"),
   NewCourse("assets/images/flutterimg.jpg", "دورة تدريبية على برنامج Flutter",
-      "https://www.youtube.com/watch?v=D1Go5WAw6Z0"),
+      "https://www.youtube.com/watch?v=D1Go5WAw6Z0", "mohamed"),
   NewCourse("assets/images/eng.jpg", "دورة تعليمية على اللغة الأنجليزية",
-      "https://www.youtube.com/watch?v=WlbXwI_qBBw"),
+      "https://www.youtube.com/watch?v=WlbXwI_qBBw", "mohamed"),
   NewCourse("assets/images/adobe.jpg", "دورة تدريبية في تصميم الجرافيك",
-      "https://www.youtube.com/watch?v=kOFwIlvGIDQ"),
+      "https://www.youtube.com/watch?v=kOFwIlvGIDQ", "ahmed"),
 ];
 
 class shared {
   static bool? isHaveAccess;
+  static bool? isTrainer;
 
-  shared(bool isHaveAccess) {
+  shared(bool isHaveAccess, bool isTrainer) {
     shared.isHaveAccess = isHaveAccess;
+    shared.isTrainer = isTrainer;
+  }
+}
+
+class loggedInName {
+  static String? lName;
+
+  loggedInName(String lName) {
+    loggedInName.lName = lName;
   }
 }

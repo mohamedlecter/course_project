@@ -12,15 +12,33 @@ class CertificateScreen extends StatefulWidget {
 }
 
 class _CertificateScreenState extends State<CertificateScreen> {
-  // const CertificateScreen({super.key});
   int currentValue = 1;
-
   int maxvalue = courses.length;
 
   @override
   Widget build(BuildContext context) {
+    String? userName = loggedInName.lName; // Retrieve the user's name
+    print(userName);
     return Center(
-      child: Image.asset("assets/images/1.png"),
+      child: Stack(
+        children: [
+          Image.asset("assets/images/1.png"), // Your certificate template image
+          Positioned(
+            top:
+                120, // Adjust the position according to your certificate template
+            left:
+                170, // Adjust the position according to your certificate template
+            child: Text(
+              userName!,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

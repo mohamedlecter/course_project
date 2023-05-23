@@ -6,11 +6,11 @@ import 'package:course_project/screens/new_course_screen.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
-class CoursesScreen extends StatefulWidget {
-  State<CoursesScreen> createState() => _CoursesScreenState();
+class TrainerCoursesScreen extends StatefulWidget {
+  State<TrainerCoursesScreen> createState() => _TrainerCoursesScreenState();
 }
 
-class _CoursesScreenState extends State<CoursesScreen> {
+class _TrainerCoursesScreenState extends State<TrainerCoursesScreen> {
   Widget? BuildCourse(index) {
     return courses[index];
   }
@@ -34,6 +34,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
               ),
               child: IconButton(
                 onPressed: () {
+                  print(loggedInName.lName);
                   if (shared.isHaveAccess == true) {
                     Navigator.push(
                       context,

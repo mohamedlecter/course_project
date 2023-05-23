@@ -12,6 +12,7 @@ class NewCourseScreen extends StatefulWidget {
 
 class _NewCourseScreenState extends State<NewCourseScreen> {
   var courseDescriptionController = TextEditingController();
+  var trainerNameController = TextEditingController();
   var urlController = TextEditingController();
 
   // var CourseDescriptionController = TextEditingController();
@@ -37,25 +38,25 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 180,
             ),
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "New course",
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
@@ -70,38 +71,52 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
             Container(
               width: 320,
               child: TextField(
                 controller: courseDescriptionController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.description),
                   border: OutlineInputBorder(),
                   label: Text("Course description"),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
+              height: 35,
+            ),
+            Container(
+              width: 320,
+              child: TextField(
+                controller: trainerNameController,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.description),
+                  border: OutlineInputBorder(),
+                  label: Text("Trainer Name"),
+                ),
+              ),
+            ),
+            const SizedBox(
               height: 35,
             ),
             Container(
               width: 320,
               child: TextField(
                 controller: urlController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.link),
                   border: OutlineInputBorder(),
                   label: Text("Link Url"),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ElevatedButton(
@@ -110,11 +125,11 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
                 image == null ? Icons.image : Icons.done_all,
               ),
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 backgroundColor: Colors.brown[400], // <-- Button color
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             MaterialButton(
@@ -126,13 +141,14 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
                   courseDescriptionController.text,
                   image,
                   urlController.text,
+                  trainerNameController.text,
                 ));
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => CoursesScreen()),
                 );
               },
-              child: Text(
+              child: const Text(
                 "Add",
                 style: TextStyle(
                   fontSize: 28,

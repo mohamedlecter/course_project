@@ -1,18 +1,19 @@
-import 'package:course_project/component/component.dart';
 import 'package:course_project/screens/courses_screen.dart';
 import 'package:course_project/screens/sign_in_screen.dart';
 import 'package:course_project/screens/student_courses_screen.dart';
+import 'package:course_project/screens/trainer_courses.dart';
 import 'package:course_project/sqldb.dart';
 import 'package:flutter/material.dart';
+import 'package:course_project/component/component.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen();
+class TarinerLogIn extends StatefulWidget {
+  TarinerLogIn();
 
   @override
-  State<LoginScreen> createState() => LoginScreenState();
+  State<TarinerLogIn> createState() => TarinerLogInState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class TarinerLogInState extends State<TarinerLogIn> {
   bool? isCanChange = shared.isHaveAccess;
 
   SqlDb sqlDb = SqlDb();
@@ -49,7 +50,7 @@ class LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "Login",
+                    "Login as a trainer",
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -122,44 +123,13 @@ class LoginScreenState extends State<LoginScreen> {
               users = await sqlDb.readData(
                   "SELECT * FROM 'users' WHERE username='${usernameController.text}' AND password='${passwordController.text}'");
               if (!users.isEmpty) {
-                loggedInName(usernameController.text);
+                // print(users[0]['username']);
 
+                loggedInName(usernameController.text);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CoursesScreen()),
-                );
-              }
-              if (users.isEmpty) {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Account not found'),
-                      content: Text(
-                          'The account does not exist. Please create a new account.'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context); // Close the dialog
-                            // Add code here to navigate to account creation screen
-                          },
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SingInScreen()),
-                              );
-                            },
-                            child: Text(
-                              "Sign up",
-                              style: TextStyle(color: Colors.blue[500]),
-                            ),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
+                  MaterialPageRoute(
+                      builder: (context) => TrainerCoursesScreen()),
                 );
               }
             },
@@ -182,7 +152,7 @@ class LoginScreenState extends State<LoginScreen> {
               );
             },
             child: Text(
-              "Don't have an account ? Sign up",
+              "Don't have an account ? Sign in",
               style: TextStyle(color: Colors.blue[500]),
             ),
           ),
