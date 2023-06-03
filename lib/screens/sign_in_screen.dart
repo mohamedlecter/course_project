@@ -6,6 +6,7 @@ import 'package:course_project/sqldb.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 
+// ignore: must_be_immutable
 class SingInScreen extends StatelessWidget {
   var usernameController = TextEditingController();
   var passwordController = TextEditingController();

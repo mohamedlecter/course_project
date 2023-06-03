@@ -1,11 +1,8 @@
 import 'package:course_project/screens/courses_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:panara_dialogs/panara_dialogs.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 
 final now = new DateTime.now();
 String formatter = DateFormat('yMd').format(now);
@@ -123,7 +120,7 @@ List<Course> courses = [
     img: "assets/images/Java-Logo.png",
     text: "دورة تعليمية على لغة جافا",
     url: "https://www.youtube.com/watch?v=N1WUJe8GgbM",
-    trainerName: "mohamed",
+    trainerName: "ahmed",
   ),
   const Course(
     img: "assets/images/flutterimg.jpg",

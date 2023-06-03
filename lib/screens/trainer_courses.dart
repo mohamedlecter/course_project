@@ -101,12 +101,14 @@ class _TrainerCoursesScreenState extends State<TrainerCoursesScreen> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CertificateScreen(),
-                  ),
-                );
+                print(shared.isTrainer);
+                if (shared.isTrainer == false) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CertificateScreen()),
+                  );
+                }
               },
               icon: const Icon(
                 Icons.task,

@@ -2,7 +2,6 @@ import 'package:course_project/component/component.dart';
 import 'package:course_project/screens/courses_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class DeleteScreen extends StatefulWidget {
@@ -21,14 +20,14 @@ class _DeleteScreenState extends State<DeleteScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "Choose course number",
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           NumberPicker(
@@ -37,7 +36,7 @@ class _DeleteScreenState extends State<DeleteScreen> {
             maxValue: maxvalue,
             onChanged: (value) => setState(() => currentValue = value),
           ),
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
           MaterialButton(
@@ -51,7 +50,7 @@ class _DeleteScreenState extends State<DeleteScreen> {
                 MaterialPageRoute(builder: (context) => CoursesScreen()),
               );
             },
-            child: Text(
+            child: const Text(
               "Delete !",
               style: TextStyle(
                 fontSize: 28,
