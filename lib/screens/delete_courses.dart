@@ -63,19 +63,3 @@ class _DeleteScreenState extends State<DeleteScreen> {
     ));
   }
 }
-
-
-// Container(
-//               width: 320,
-//               child: TextField(
-//                 controller: IndexOfCourse,
-//                 decoration: InputDecoration(
-//                   prefixIcon: Icon(Icons.link),
-//                   border: OutlineInputBorder(),
-//                   label: Text("Link Url"),
-//                 ),
-//               ),
-//             ),
-
-
-
