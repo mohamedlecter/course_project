@@ -19,13 +19,14 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
   // var CourseDescriptionController = TextEditingController();
   // This is the file that will be used to store the image
   File? image;
-
-  // This is the image picker
   final _picker = ImagePicker();
-  // Implementing the image picker
+
   Future<void> _openImagePicker() async {
     final XFile? pickedImage = await _picker.pickImage(
-        source: ImageSource.gallery, maxHeight: 200, maxWidth: 200);
+      source: ImageSource.gallery,
+      maxHeight: 200,
+      maxWidth: 200,
+    );
     if (pickedImage != null) {
       setState(() {
         image = File(pickedImage.path);
@@ -139,7 +140,7 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
               height: 50,
               onPressed: () {
                 final newCourse = Course(
-                  img: "assets/images/Java-Logo.png",
+                  img: image,
                   text: courseDescriptionController.text,
                   url: urlController.text,
                   trainerName: trainerNameController.text,

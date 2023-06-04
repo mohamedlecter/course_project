@@ -1,4 +1,5 @@
-import 'package:course_project/screens/courses_screen.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
@@ -26,12 +27,12 @@ Widget pushNewCourse(coursename, img, url, trainerName) {
 }
 
 class Course extends StatelessWidget {
-  final String img;
+  final dynamic img; // Updated the type to dynamic
   final String text;
   final String url;
   final String trainerName;
 
-  const Course({
+  Course({
     required this.img,
     required this.text,
     required this.url,
@@ -53,8 +54,8 @@ class Course extends StatelessWidget {
           width: 330,
           child: Column(
             children: [
-              Image.asset(
-                img,
+              Image(
+                image: _getImageProvider(),
                 width: 330,
                 height: 195,
               ),
@@ -113,28 +114,38 @@ class Course extends StatelessWidget {
       ],
     );
   }
+
+  ImageProvider _getImageProvider() {
+    if (img is File) {
+      return FileImage(img);
+    } else if (img is String) {
+      return AssetImage(img);
+    } else {
+      throw ArgumentError('Invalid image type');
+    }
+  }
 }
 
 List<Course> courses = [
-  const Course(
+  Course(
     img: "assets/images/Java-Logo.png",
     text: "دورة تعليمية على لغة جافا",
     url: "https://www.youtube.com/watch?v=N1WUJe8GgbM",
     trainerName: "ahmed",
   ),
-  const Course(
+  Course(
     img: "assets/images/flutterimg.jpg",
     text: "دورة تدريبية على برنامج Flutter",
     url: "https://www.youtube.com/watch?v=D1Go5WAw6Z0",
     trainerName: "khalid",
   ),
-  const Course(
+  Course(
     img: "assets/images/eng.jpg",
     text: "دورة تعليمية على اللغة الأنجليزية",
     url: "https://www.youtube.com/watch?v=WlbXwI_qBBw",
     trainerName: "ahmed",
   ),
-  const Course(
+  Course(
     img: "assets/images/adobe.jpg",
     text: "دورة تدريبية في تصميم الجرافيك",
     url: "https://www.youtube.com/watch?v=kOFwIlvGIDQ",

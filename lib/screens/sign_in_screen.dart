@@ -1,10 +1,6 @@
-import 'package:course_project/component/component.dart';
-import 'package:course_project/screens/courses_screen.dart';
 import 'package:course_project/screens/login_screen.dart';
-import 'package:course_project/screens/new_course_screen.dart';
 import 'package:course_project/sqldb.dart';
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 
 // ignore: must_be_immutable
 class SingInScreen extends StatelessWidget {

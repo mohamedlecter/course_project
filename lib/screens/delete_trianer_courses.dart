@@ -1,9 +1,7 @@
 import 'package:course_project/component/component.dart';
-import 'package:course_project/screens/courses_screen.dart';
 import 'package:course_project/screens/trainer_courses.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class DeleteTrainerCoursesScreen extends StatefulWidget {

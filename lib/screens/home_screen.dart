@@ -3,11 +3,7 @@ import 'package:course_project/screens/login_screen.dart';
 import 'package:course_project/screens/trainerLogin.dart';
 import 'package:flutter/material.dart';
 
-// bool isHeStudent = false;
-
 class HomeScreen extends StatelessWidget {
-  // const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

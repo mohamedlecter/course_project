@@ -1,14 +1,8 @@
 import 'package:course_project/component/component.dart';
 import 'package:course_project/screens/certificate_screen.dart';
-import 'package:course_project/screens/delete_courses.dart';
 import 'package:course_project/screens/delete_trianer_courses.dart';
-import 'package:course_project/screens/login_screen.dart';
 import 'package:course_project/screens/new_course_screen.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TrainerCoursesScreen extends StatefulWidget {
   State<TrainerCoursesScreen> createState() => _TrainerCoursesScreenState();
